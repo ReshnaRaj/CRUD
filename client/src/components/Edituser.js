@@ -21,7 +21,7 @@ const Edituser = () => {
   const getUserData = async (userId) => {
     try {
       let response = await axios.get(
-        `http://localhost:4000/getuniquedata/${userId}`,
+        `${process.env.REACT_APP_BASE_URL}/${userId}`,
         { withCredentials: true }
       );
 
@@ -60,7 +60,7 @@ const Edituser = () => {
     try {
       console.log(userdata);
       const response = await axios.post(
-        `http://localhost:4000/postedituser/${id}`,
+        `${process.env.REACT_APP_BASE_URL}/postedituser/${id}`,
         formData,
         {
           headers: {

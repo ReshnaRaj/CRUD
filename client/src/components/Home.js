@@ -13,7 +13,7 @@ const Home = () => {
 console.log(users,"user data...")
   function getUserList() {
     axios
-      .get("http://localhost:4000/alluser", { withCredentials: true })
+      .get(`${process.env.REACT_APP_BASE_URL}/alluser`, { withCredentials: true })
       .then((response) => {
         setUsers(response?.data?.users);
       });
@@ -21,7 +21,7 @@ console.log(users,"user data...")
   function deleteUser(userId) {
     console.log(userId,"user idfbhv")
     axios
-      .delete(`http://localhost:4000/deleteuser/${userId}`, {
+      .delete(`${process.env.REACT_APP_BASE_URL}/deleteuser/${userId}`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -71,7 +71,7 @@ console.log(users,"user data...")
             <tr key={index}>
               <td>{index+1}</td>
               <td>
-                <img src={`http://localhost:4000/${user.image}`}  width="50" height="50" />
+                <img src={`${process.env.REACT_APP_BASE_URL}/${user.image}`}  width="50" height="50" />
               </td>
               <td>{user.name}</td>
               <td>{user.email}</td>
