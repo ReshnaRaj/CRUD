@@ -21,7 +21,7 @@ const Edituser = () => {
   const getUserData = async (userId) => {
     try {
       let response = await axios.get(
-        `http://localhost:4000/getuniquedata/${userId}`,
+        `${process.env.REACT_APP_BASE_URL}/getuniquedata/${userId}`,
         { withCredentials: true }
       );
         console.log(response,"responce");
