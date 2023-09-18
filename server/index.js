@@ -1,5 +1,6 @@
 const express=require('express')
 const app=express()
+require("dotenv").config();
 const userrouter=require('./Routes/userrouter')
 const cors=require('cors')
 const dbConnection = require('./Connection/database')
@@ -10,7 +11,7 @@ app.listen(4000,()=>{
     console.log("Server is running on 4000")
 })
 app.use(cors({
-    origin:['http://localhost:3000'],
+    origin:[process.env.BASE_URL],
     method:['GET','POST','PUT','DELETE'],
     credentials:true
 }))
