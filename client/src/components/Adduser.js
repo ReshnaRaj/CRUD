@@ -20,7 +20,7 @@ const Adduser = () => {
     formData.append("phone", phone);
     formData.append("image", image[0]);
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/adduser`, formData, {
+      const response = await axios.post('http://localhost:4000/adduser', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',  
         },

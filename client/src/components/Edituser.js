@@ -21,10 +21,10 @@ const Edituser = () => {
   const getUserData = async (userId) => {
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/${userId}`,
+        `http://localhost:4000/getuniquedata/${userId}`,
         { withCredentials: true }
       );
-
+        console.log(response,"responce");
       if (response.data.success) {
         setUserdata(response.data.userdata);
       }
@@ -59,6 +59,7 @@ const Edituser = () => {
     formData.append("image", userdata.image);
     try {
       console.log(userdata);
+      console.log(process.env.REACT_APP_BASE_URL,'envfile');
       const response = await axios.post(
         `${process.env.REACT_APP_BASE_URL}/postedituser/${id}`,
         formData,
